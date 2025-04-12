@@ -1,3 +1,7 @@
+# 本文件部分代码基于yeephycho的tensorflow-face-detection项目（https://github.com/yeephycho/tensorflow-face-detection），遵循Apache 2.0许可。
+# 请参考项目README.md或LICENSE文件获取完整许可信息。
+
+
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 # pylint: disable=C0103
@@ -12,17 +16,42 @@ import cv2
 from utils import label_map_util
 from utils import visualization_utils_color as vis_util
 
-# Path to frozen detection graph. This is the actual model that is used for the object detection.
+# sys：用于处理命令行参数。
+# time：用于计算推理时间。
+# numpy：用于处理图像数组。
+# tensorflow：用于加载和运行预训练的人脸检测模型。
+# cv2：OpenCV库，用于处理视频流和图像。
+# label_map_util和visualization_utils_color：自定义工具函数，用于处理标签映射和可视化检测结果。
+
+
+# 预训练的冻结推理图的路径。
 PATH_TO_CKPT = './model/frozen_inference_graph_face.pb'
 
-# List of the strings that is used to add correct label for each box.
+# 标签映射文件的路径。
 PATH_TO_LABELS = './protos/face_label_map.pbtxt'
 
+# 检测的类别数量。
 NUM_CLASSES = 2
 
 label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
 categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=NUM_CLASSES, use_display_name=True)
 category_index = label_map_util.create_category_index(categories)
+
+# load_labelmap：从文本文件中加载标签映射。
+# convert_label_map_to_categories：将标签映射转换为适合评估的类别列表。
+# create_category_index：创建一个以类别ID为键的类别索引字典。
+
+
+# _init_方法：
+#     创建预训练的冻结推理图
+#     创建一个TensorFlow会话，并配置GPU内存使用。
+# run方法：
+#     将输入图像从BGR转换为RGB格式。
+#     扩展图像维度以适应模型输入。
+#     获取模型的输入和输出张量。
+#     运行模型进行推理，并记录推理时间。
+#     返回检测到的边界框、得分、类别和检测数量。
+
 
 class TensoflowFaceDector(object):
     def __init__(self, PATH_TO_CKPT):
@@ -74,6 +103,18 @@ class TensoflowFaceDector(object):
 
         return (boxes, scores, classes, num_detections)
 
+
+
+# 检查命令行参数是否正确。
+# 尝试将命令行参数转换为整数作为摄像头ID，如果失败则将其作为视频文件路径。
+# 创建TensoflowFaceDector类的实例。
+# 打开视频捕获设备：
+#     进入循环，不断读取视频帧：翻转图像以实现镜像效果。
+#     调用TensorflowFaceDector类的run方法进行人脸检测。
+#     调用visualization_utils_color模块的visualize_boxes_and_labels_on_image_array函数在图像上绘制检测结果。
+#     显示处理后的图像。
+#     检查是否按下q或Esc键，如果是则退出循环。
+# 释放视频捕获设备。
 
 if __name__ == "__main__":
     import sys
