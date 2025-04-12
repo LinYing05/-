@@ -33,8 +33,8 @@ limitations under the License.
         VboxManage controlvm "Ubuntu-16.04" webcam attach .1  
     e)	之后，可以在VirtualBox中点级“设备”->“摄像头”看到同步过来的摄像头，单机打勾。  
   	f)	在Ubuntu中验证摄像头是否正常工作：  
-        i.	在Ubuntu中打开Terminal并运行sodo apt-get install cheese  
-  	    ii.	之后在terminal中直接运行cheese，可以看到摄像影像，则说明同步成功：  
+            i.	在Ubuntu中打开Terminal并运行sodo apt-get install cheese  
+  	        ii.	之后在terminal中直接运行cheese，可以看到摄像影像，则说明同步成功：  
 2.	在Ubuntu中安装git，在terminal中运行：sudo apt-get install git
 3.	本次运行的项目是基于MobileNet的人脸检测项目，github链接是https://github.com/yeephycho/tensorflow-face-detection
 4.	在Ubuntu的Terminal中运行  
