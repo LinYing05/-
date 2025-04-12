@@ -26,7 +26,7 @@ limitations under the License.
 ### 运行过程
 
 1.	将Host操作系统端(Windows11)摄像头同步至Guest虚拟机端操作系统(ubuntu16.04)，步骤如下：
-    a)	在VirtualBox中启动Guest操作系统(Ubuntu-16.04)。
+    a)	在VirtualBox中启动Guest操作系统(Ubuntu-16.04)。  
     b)	在host操作系统(Windows11)下打开cmd，用cd命令进入VirtualBox所安装的地方，也可以手动进入目录，输入cmd直接进入。
     c)	之后用VBoxManage list webcams命令列出所有存在的摄像头。
   	d)	设备只有一个USB连接驱动的摄像头，这时接着运行如下命令将第一个摄像头同步到虚拟机中的Ubuntu操作系统：
