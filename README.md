@@ -25,20 +25,20 @@ limitations under the License.
 
 ### 运行过程
 
-1.	将Host操作系统端(Windows11)摄像头同步至Guest虚拟机端操作系统(ubuntu16.04)，步骤如下：
+1.	将Host操作系统端(Windows11)摄像头同步至Guest虚拟机端操作系统(ubuntu16.04)，步骤如下：  
     a)	在VirtualBox中启动Guest操作系统(Ubuntu-16.04)。  
-    b)	在host操作系统(Windows11)下打开cmd，用cd命令进入VirtualBox所安装的地方，也可以手动进入目录，输入cmd直接进入。
-    c)	之后用VBoxManage list webcams命令列出所有存在的摄像头。
-  	d)	设备只有一个USB连接驱动的摄像头，这时接着运行如下命令将第一个摄像头同步到虚拟机中的Ubuntu操作系统：
-        VboxManage controlvm "Ubuntu-16.04" webcam attach .1
-    e)	之后，可以在VirtualBox中点级“设备”->“摄像头”看到同步过来的摄像头，单机打勾。
-  	f)	在Ubuntu中验证摄像头是否正常工作：
-        i.	在Ubuntu中打开Terminal并运行sodo apt-get install cheese
-  	    ii.	之后在terminal中直接运行cheese，可以看到摄像影像，则说明同步成功：
+    b)	在host操作系统(Windows11)下打开cmd，用cd命令进入VirtualBox所安装的地方，也可以手动进入目录，输入cmd直接进入。  
+    c)	之后用VBoxManage list webcams命令列出所有存在的摄像头。  
+  	d)	设备只有一个USB连接驱动的摄像头，这时接着运行如下命令将第一个摄像头同步到虚拟机中的Ubuntu操作系统：  
+        VboxManage controlvm "Ubuntu-16.04" webcam attach .1  
+    e)	之后，可以在VirtualBox中点级“设备”->“摄像头”看到同步过来的摄像头，单机打勾。  
+  	f)	在Ubuntu中验证摄像头是否正常工作：  
+        i.	在Ubuntu中打开Terminal并运行sodo apt-get install cheese  
+  	    ii.	之后在terminal中直接运行cheese，可以看到摄像影像，则说明同步成功：  
 2.	在Ubuntu中安装git，在terminal中运行：sudo apt-get install git
 3.	本次运行的项目是基于MobileNet的人脸检测项目，github链接是https://github.com/yeephycho/tensorflow-face-detection
-4.	在Ubuntu的Terminal中运行
-    git clone https://github.com/yeephycho/tensorflow-face-detection.git
-5.	在Ubuntu的Terminal用cd命令进入第4步下载好的tensorflow-face-detection-master项目里面，并运行如下指令：
-    python3.8 inference_usbCam_face.py 0
+4.	在Ubuntu的Terminal中运行  
+    git clone https://github.com/yeephycho/tensorflow-face-detection.git  
+5.	在Ubuntu的Terminal用cd命令进入第4步下载好的tensorflow-face-detection-master项目里面，并运行如下指令：  
+    python3.8 inference_usbCam_face.py 0  
     出现人脸识别结果则成功。
