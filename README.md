@@ -19,7 +19,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-本项目依赖于Google TensorFlow对象检测API。TensorFlow遵循其自身的许可协议，请参考https://github.com/tensorflow/tensorflow/blob/master/LICENSE获取详细信息。
+本项目依赖于Google TensorFlow对象检测API。TensorFlow遵循其自身的许可协议，请参考（https://github.com/yeephycho/tensorflow-face-detection/blob/master/LICENSE）获取详细信息。
 
 本项目使用了WIDERFACE数据集进行模型训练。WIDERFACE数据集遵循其自身的许可协议，请参考http://shuoyang1213.me/WIDERFACE/获取详细信息。
 
